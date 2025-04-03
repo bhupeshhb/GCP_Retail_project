@@ -17,6 +17,7 @@ JOIN `retail-data-lake.silver_dataset.categories` c ON p.category_id = c.categor
 WHERE o.is_active = TRUE
 GROUP BY 1, 2, 3, 4, 5;
 
+
 -----------------------------------------------------------------------------------------------------------
 -- 2. Customer Engagement Metrics (customer_engagement)
 
@@ -35,6 +36,7 @@ LEFT JOIN `retail-data-lake.silver_dataset.orders` o ON c.customer_id = o.custom
 LEFT JOIN `retail-data-lake.silver_dataset.order_items` oi ON o.order_id = oi.order_id
 WHERE c.is_active = TRUE
 GROUP BY 1, 2, 6;
+
 
 -----------------------------------------------------------------------------------------------------------
 --3. Product Performance (product_performance)
@@ -61,6 +63,7 @@ LEFT JOIN `retail-data-lake.silver_dataset.customer_reviews` cr ON p.product_id 
 WHERE p.is_quarantined = FALSE
 GROUP BY 1, 2, 3, 4, 5, 6;
 
+
 -----------------------------------------------------------------------------------------------------------
 --4. Supplier Performance (supplier_analysis)
 CREATE TABLE IF NOT EXISTS `retail-data-lake.gold_dataset.supplier_analysis`
@@ -77,6 +80,7 @@ LEFT JOIN `retail-data-lake.silver_dataset.order_items` oi ON ps.product_id = oi
 WHERE s.is_quarantined = FALSE
 GROUP BY 1, 2;
 
+
 -----------------------------------------------------------------------------------------------------------
 --5. Customer Reviews Summary (customer_reviews_summary)
 CREATE TABLE IF NOT EXISTS `retail-data-lake.gold_dataset.customer_reviews_summary`
@@ -92,5 +96,6 @@ FROM `retail-data-lake.silver_dataset.products` p
 LEFT JOIN `retail-data-lake.silver_dataset.customer_reviews` cr ON p.product_id = cr.product_id
 WHERE p.is_quarantined = FALSE
 GROUP BY 1, 2;
+
 
 -----------------------------------------------------------------------------------------------------------
