@@ -15,7 +15,8 @@ JOIN `retail-data-lake.silver_dataset.order_items` oi ON o.order_id = oi.order_i
 JOIN `retail-data-lake.silver_dataset.products` p ON oi.product_id = p.product_id
 JOIN `retail-data-lake.silver_dataset.categories` c ON p.category_id = c.category_id
 WHERE o.is_active = TRUE
-GROUP BY 1, 2, 3, 4, 5;
+GROUP BY 1, 2, 3, 4, 5; 
+
 
 
 -----------------------------------------------------------------------------------------------------------
