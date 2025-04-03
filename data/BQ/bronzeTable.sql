@@ -10,6 +10,7 @@ OPTIONS (
   uris = ['gs://datalake-project-bkt-30032025/landing/retailer-db/orders/*.json']
 );
 
+
 CREATE EXTERNAL TABLE IF NOT EXISTS `retail-data-lake.bronze_dataset.customers`
 (
     customer_id INT64,
@@ -21,6 +22,7 @@ OPTIONS (
     format = 'JSON',
     uris = ['gs://datalake-project-bkt-30032025/landing/retailer-db/customers/*.json']
 );
+
 
 CREATE EXTERNAL TABLE IF NOT EXISTS `retail-data-lake.bronze_dataset.products`
 (
@@ -35,6 +37,7 @@ OPTIONS (
     uris = ['gs://datalake-project-bkt-30032025/landing/retailer-db/products/*.json']
 );
 
+
 CREATE EXTERNAL TABLE IF NOT EXISTS `retail-data-lake.bronze_dataset.categories`
 (
     category_id INT64,
@@ -45,6 +48,7 @@ OPTIONS (
     format = 'JSON',
     uris = ['gs://datalake-project-bkt-30032025/landing/retailer-db/categories/*.json']
 );
+
 
 CREATE EXTERNAL TABLE IF NOT EXISTS `retail-data-lake.bronze_dataset.order_items`
 (
@@ -60,6 +64,7 @@ OPTIONS (
     uris = ['gs://datalake-project-bkt-30032025/landing/retailer-db/order_items/*.json']
 );
 -------------------------------------------------------------------------------------------------------------
+
 -- Suppliers Table
 CREATE EXTERNAL TABLE IF NOT EXISTS `retail-data-lake.bronze_dataset.suppliers` (
     supplier_id INT64,
@@ -77,6 +82,7 @@ OPTIONS (
   uris = ['gs://datalake-project-bkt-30032025/landing/supplier-db/suppliers/*.json']
 );
 
+
 -- Product Suppliers Table (Mapping suppliers to products)
 CREATE EXTERNAL TABLE IF NOT EXISTS `retail-data-lake.bronze_dataset.product_suppliers` (
     supplier_id INT64,
@@ -90,6 +96,7 @@ OPTIONS (
 );
 
 -------------------------------------------------------------------------------------------------------------
+
 
 CREATE OR REPLACE EXTERNAL TABLE `retail-data-lake.bronze_dataset.customer_reviews` (
   id STRING,
