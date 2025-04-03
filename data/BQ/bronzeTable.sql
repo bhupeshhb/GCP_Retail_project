@@ -10,7 +10,6 @@ OPTIONS (
   uris = ['gs://datalake-project-bkt-30032025/landing/retailer-db/orders/*.json']
 );
 
-
 CREATE EXTERNAL TABLE IF NOT EXISTS `retail-data-lake.bronze_dataset.customers`
 (
     customer_id INT64,
